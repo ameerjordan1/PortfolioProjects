@@ -50,8 +50,10 @@ st.header("Movie Recommender System")
 # ---------------------------------------------------------------------------
 import streamlit.components.v1 as components
 
-imageCarouselComponent = components.declare_component("image_carousel_component", path="frontend/public")
-
+imageCarouselComponent = components.declare_component(
+    "image_carousel_component",
+    path=os.path.join(BASE_DIR, "frontend", "public")
+)
 # A hardcoded list of TMDB movie IDs for the featured carousel at the top
 imageUrls = [
     fetch_poster(1632),
