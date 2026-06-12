@@ -1,6 +1,8 @@
 import streamlit as st
 import pickle
 import requests
+import os
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # ---------------------------------------------------------------------------
 # Movie Recommender System - Streamlit App
@@ -34,8 +36,8 @@ def fetch_poster(movie_id):
 #   - similarity: cosine similarity matrix (numpy array), where
 #     similarity[i][j] = similarity score between movie i and movie j
 # ---------------------------------------------------------------------------
-movies = pickle.load(open("movies_list.pkl", "rb"))
-similarity = pickle.load(open("similarity_topk.pkl", "rb"))
+movies = pickle.load(open(os.path.join(BASE_DIR, "movies_list.pkl"), "rb"))
+similarity = pickle.load(open(os.path.join(BASE_DIR, "similarity_topk.pkl"), "rb"))
 
 # List of all movie titles, used to populate the dropdown selector
 movies_list = movies['title'].values
